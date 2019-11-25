@@ -1,2 +1,3 @@
 const g = G$('Sergey', 'Sinitsa');
-console.log(g);
+
+g.greet(true).setLang('e').greet()

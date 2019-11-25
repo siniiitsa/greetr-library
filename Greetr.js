@@ -4,7 +4,52 @@
     return new Greetr.init(firstName, lastName, language);
   }
 
-  Greetr.prototype = {};
+  Greetr.prototype = {
+    fullName() {
+      return `${this.firstName} ${this.lastName}`
+    },
+
+    validate() {
+      if (!supportedLangs.includes(this.language)) {
+        throw new Error('Invalid language');
+      }
+    },
+
+    greeting() {
+      return `${greetings[this.language]}, ${this.firstName}!`
+    },
+
+    formalGreeting() {
+      return `${formalGreetings[this.language]}, ${this.fullName()}`
+    },
+
+    greet(isFormal) {
+      const msg = isFormal
+        ? this.formalGreeting()
+        : this.greeting();
+
+      // support for IE
+      if (console) console.log(msg);
+
+      // 'this' refers to the calling object at execution time
+      // makes the mehtod chainable
+      return this;
+    },
+
+    log() {
+      if (console) {
+        console.log(`${logMessages[this.language]}: ${this.fullName()}`);
+      }
+
+      return this;
+    },
+
+    setLang(newLang) {
+      this.language = newLang;
+      this.validate();
+      return this;
+    },
+  };
 
   const supportedLangs = 'en-es-ru-ua'.split('-');
 
