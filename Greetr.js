@@ -1,7 +1,7 @@
 (function (global, $) {
 
-  const Greetr = function (firstname, lastname, language) {
-    return new Greetr.init(firstname, lastname, language);
+  const Greetr = function (firstName, lastName, language) {
+    return new Greetr.init(firstName, lastName, language);
   }
 
   Greetr.prototype = {};
@@ -29,11 +29,11 @@
     ua: 'Вхід здійснено'
   };
 
-  Greetr.init = function (firstname, lastname, language) {
+  Greetr.init = function (firstName, lastName, language) {
     const self = this;
 
-    self.firstname = firstname || '';
-    self.lastname = lastname || '';
+    self.firstName = firstName || '';
+    self.lastName = lastName || '';
     self.language = language || 'en';
   }
 
