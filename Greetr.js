@@ -49,6 +49,15 @@
       this.validate();
       return this;
     },
+
+    update(selector) {
+      if (!selector) throw new Error('No selector passed');
+      if (!$) throw new Error('No jQuery object passed');
+
+      $(selector).text(this.greeting());
+
+      return this;
+    },
   };
 
   const supportedLangs = 'en-es-ru-ua'.split('-');
