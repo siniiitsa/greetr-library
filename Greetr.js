@@ -22,6 +22,13 @@
     ua: 'Вітаю'
   }
 
+  const logMessages = {
+    en: 'Logged in',
+    es: 'conectado',
+    ru: 'Вход совершен',
+    ua: 'Вхід здійснено'
+  };
+
   Greetr.init = function (firstname, lastname, language) {
     const self = this;
 
